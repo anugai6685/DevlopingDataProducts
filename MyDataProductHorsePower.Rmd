@@ -1,0 +1,47 @@
+---
+title: "MyDataProductPresentation"
+author: "Anita Gaikwad"
+date: "12 September 2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## My Title
+**Predict Horse Power from MPG**
+
+
+Purpose
+
+The purpose of this Shiny app is to predict miles per gallon of a given car model based on its horsepower data. This data is part of the "mtcars" dataset from R's automatically loaded Datasets Package. The source is:
+
+Henderson and Velleman (1981), Building multiple regression models interactively. Biometrics, 37, 391-411.
+
+
+## "mtcars" Dataset Summary
+The dataset consists of 32 observations (different makes/models) with 11 variables. Below is a summary of the dataset.
+```{r cars, echo = TRUE}
+summary(mtcars)
+
+```
+
+##Static Plot with two models
+
+The dependent variable is the car's horsepower, and the independent variable is the car's miles per gallon (mpg). There are two different models. Model 1 is a simple linear regression. Model 2 is a piecewise regression consisting of two simple linear regressions for the data with mpg < 20, and the data with mpg >= 20. 
+
+```{r}
+library(ggplot2)
+plot(mtcars$mpg, mtcars$hp, xlab = "miles per gallon", ylab = "horsepower", bty = "n", pch = 16,
+       xlim = c(10,35), ylim = c(50,350))
+```
+
+## 
+Plot URL
+
+The application allows the user to view the plot, and predict the horsepower using the two models by inputting a given mpg by using a slider widget. The running application can be found at this URL:
+
+https://alemarc21.shinyapps.io/week4proj/
+
+
